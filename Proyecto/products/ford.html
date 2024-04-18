@@ -148,61 +148,57 @@
 
 <!-- carrito de compras -->
 <div id="listaProductos" class="container mt-5">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h4 class="card-title">Producto A <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
-            <div class="mb-4">
-              <label for="cantidadA" class="form-label"></label>
-              <div class="input-group mb-4">
-                <span class="input-group-text">Cantidad:</span>
-                <input type="number" class="form-control" id="cantidadB" placeholder="1" required>
-              </div>
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4 class="card-title">Mustang Dark Horse 2024 <button type="button" class="btn btn-primary">Agregar al Carrito</button></h4>
+          <div class="mb-4">
+            <label for="cantidadA" class="form-label"></label>
+            <div>
+              <img src="https://acroadtrip.blob.core.windows.net/catalogo-imagenes/s/RT_V_456fe90b02b748adab5ac58027bdd302.webp" width="500" class="float-end" alt="Imagen del Producto A">
             </div>
-            <div class="mb-4">
-              <label for="precioA" class="form-label"></label>
-              <div class="input-group mb-4">
-                <span class="input-group-text">Precio</span>
-                <input type="number" class="form-control" id="precioA" placeholder="3,000.00" required>
-                <span class="input-group-text">MXN:</span>
-              </div>
-            </div>
-            <img src="https://images.pexels.com/photos/5907675/pexels-photo-5907675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="100" class="float-end" alt="Imagen del Producto A">
           </div>
-        </div>
-        <div class="card mb-3">
-          <div class="card-body">
-            <h4 class="card-title">Producto B <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
-            <div class="mb-4">
-              <label for="cantidadB" class="form-label"></label>
-              <div class="input-group mb-4">
-                <span class="input-group-text">Cantidad:</span>
-                <input type="number" class="form-control" id="cantidadB" placeholder="1" required>
-              </div>
+          <div class="mb-4">
+            <label for="precioA" class="form-label"></label>
+            <div class="input-group mb-4">
+              <span class="input-group-text">Precio de renta por dia</span>
+              <input type="number" class="form-control" id="precioA" placeholder="3,500.00" required>
+              <span class="input-group-text">MXN:</span>
             </div>
-            <div class="mb-4">
-              <label for="precioB" class="form-label"></label>
-              <div class="input-group mb-4">
-                <span class="input-group-text">Precio</span>
-                <input type="number" class="form-control" id="precioB" placeholder="7,000.00" required>
-                <span class="input-group-text">MXN:</span>
-              </div>
-            </div>
-            <img src="https://images.pexels.com/photos/6958752/pexels-photo-6958752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="100" class="float-end" alt="Imagen del Producto A">
           </div>
         </div>
       </div>
-      <div class="col-md-6" style="display: flex; flex-direction: column; justify-content: flex-start;">
-        <div class="card mb-3" style="text-align: center;">
-          <div id="total" class="card-body">
-            <!-- El contenido dinámico será inyectado aquí por mostrarProductosYTotal() -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4 class="card-title">Ranger Raptor 2024 <button type="button" class="btn btn-primary">Agregar al Carrito</button></h4>
+          <div class="mb-4">
+            <label for="cantidadB" class="form-label"></label>
+            <div class="input-group mb-4">
+              <img src="https://loscoches.com/wp-content/uploads/2024/01/Ranger-raptor.png" width="500" class="float-end" alt="Imagen del Producto A">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="precioB" class="form-label"></label>
+            <div class="input-group mb-4">
+              <span class="input-group-text">Precio de renta por dia</span>
+              <input type="number" class="form-control" id="precioB" placeholder="2,500.00" required>
+              <span class="input-group-text">MXN:</span>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-md-6" style="display: flex; flex-direction: column; justify-content: flex-start;">
+      <div class="card mb-3" style="text-align: center;">
+        <div id="total" class="card-body">
+          <!-- El contenido dinámico será inyectado aquí por mostrarProductosYTotal() -->
+        </div>
+      </div>
     </div>
   </div>
 </div>
-  
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../controllers/shopping_cart.js"></script>

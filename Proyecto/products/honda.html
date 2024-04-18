@@ -148,57 +148,54 @@
 
 <!-- carrito de compras -->
 <div id="listaProductos" class="container mt-5">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h4 class="card-title">Producto A <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
-            <div class="mb-4">
-              <label for="cantidadA" class="form-label"></label>
-              <div class="input-group mb-4">
-                <span class="input-group-text">Cantidad:</span>
-                <input type="number" class="form-control" id="cantidadB" placeholder="1" required>
-              </div>
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4 class="card-title">Type R 2024 <button type="button" class="btn btn-primary">Agregar al Carrito</button></h4>
+          <div class="mb-4">
+            <label for="cantidadA" class="form-label"></label>
+            <div>
+              <img src="https://www.webmotors.com.br/imagens/prod/379390/HONDA_CIVIC_2.0_DI_VTEC_TURBO_GASOLINA_TYPE_R_MANUAL_37939010255225888.webp" width="500" class="float-end" alt="Imagen del Producto A">
             </div>
-            <div class="mb-4">
-              <label for="precioA" class="form-label"></label>
-              <div class="input-group mb-4">
-                <span class="input-group-text">Precio</span>
-                <input type="number" class="form-control" id="precioA" placeholder="3,000.00" required>
-                <span class="input-group-text">MXN:</span>
-              </div>
-            </div>
-            <img src="https://images.pexels.com/photos/5907675/pexels-photo-5907675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="100" class="float-end" alt="Imagen del Producto A">
           </div>
-        </div>
-        <div class="card mb-3">
-          <div class="card-body">
-            <h4 class="card-title">Producto B <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
-            <div class="mb-4">
-              <label for="cantidadB" class="form-label"></label>
-              <div class="input-group mb-4">
-                <span class="input-group-text">Cantidad:</span>
-                <input type="number" class="form-control" id="cantidadB" placeholder="1" required>
-              </div>
+          <div class="mb-4">
+            <label for="precioA" class="form-label"></label>
+            <div class="input-group mb-4">
+              <span class="input-group-text">Precio de renta por dia</span>
+              <input type="number" class="form-control" id="precioA" placeholder="1,700.00" required>
+              <span class="input-group-text">MXN:</span>
             </div>
-            <div class="mb-4">
-              <label for="precioB" class="form-label"></label>
-              <div class="input-group mb-4">
-                <span class="input-group-text">Precio</span>
-                <input type="number" class="form-control" id="precioB" placeholder="7,000.00" required>
-                <span class="input-group-text">MXN:</span>
-              </div>
-            </div>
-            <img src="https://images.pexels.com/photos/6958752/pexels-photo-6958752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="100" class="float-end" alt="Imagen del Producto A">
           </div>
         </div>
       </div>
-      <div class="col-md-6" style="display: flex; flex-direction: column; justify-content: flex-start;">
-        <div class="card mb-3" style="text-align: center;">
-          <div id="total" class="card-body">
-            <!-- El contenido dinámico será inyectado aquí por mostrarProductosYTotal() -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4 class="card-title">CR-V hibrida 2024 <button type="button" class="btn btn-primary">Agregar al Carrito</button></h4>
+          <div class="mb-4">
+            <label for="cantidadB" class="form-label"></label>
+            <div class="input-group mb-4">
+              <img src="https://hondapape.mx/images/autos/crv-hibrido.png" width="500" class="float-end" alt="Imagen del Producto A">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="precioB" class="form-label"></label>
+            <div class="input-group mb-4">
+              <span class="input-group-text">Precio de renta por dia</span>
+              <input type="number" class="form-control" id="precioB" placeholder="1,200.00" required>
+              <span class="input-group-text">MXN:</span>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-md-6" style="display: flex; flex-direction: column; justify-content: flex-start;">
+      <div class="card mb-3" style="text-align: center;">
+        <div id="total" class="card-body">
+          <!-- El contenido dinámico será inyectado aquí por mostrarProductosYTotal() -->
+        </div>
+      </div>
     </div>
   </div>
 </div>
