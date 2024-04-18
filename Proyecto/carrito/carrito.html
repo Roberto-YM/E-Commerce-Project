@@ -37,18 +37,12 @@
               <option value="nissan.html">Nissan</option>
               <option value="chevrolet.html">Chevrolet</option>
               <option value="ford.html">Ford</option>
-              <option value="bmw.html">BMW</option>
-              <option value="mercedes.html">Mercedes</option>
               <option value="mazda.html">Mazda</option>
-              <option value="chrysler.html">Chrysler</option>
               <option value="hyundai.html">Hyundai</option>
               <option value="mg.html">MG</option>
               <option value="suzuki.html">Suzuki</option>
               <option value="honda.html">Honda</option>
               <option value="renault.html">Renault</option>
-              <option value="audi.html">Audi</option>
-              <option value="porsche.html">Porsche</option>
-              <option value="bently.html">Bently</option>
             </select>
         </li>
         <li class="nav-item">
@@ -157,54 +151,62 @@
     <div class="row">
       <div class="col-md-6">
         <div class="card mb-3">
-          <div class="card-body">
-            <h4 class="card-title">Producto A <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
-            <div class="mb-4">
-              <label for="cantidadA" class="form-label"></label>
-              <div class="input-group mb-4">
-                <span class="input-group-text">Cantidad:</span>
-                <input type="number" class="form-control" id="cantidadB" placeholder="1" required>
+          <div class="card mb-3">
+            <div class="card-body">
+              <h4 class="card-title">Corvette Stingray 2024 <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
+              <div class="mb-4">
+                <label for="cantidadA" class="form-label"></label>
+                <div>
+                  <img src="https://vehicle-images.dealerinspire.com/stock-images/thumbnails/large/chrome/85e69a165ba69414b1bf0c97a68b4fc1.png" width="500" class="float-end" alt="Imagen del Producto A">
+                </div>
+              </div>
+              <div class="mb-4">
+                <label for="precioA" class="form-label"></label>
+                <div class="input-group mb-4">
+                  <span class="input-group-text">Precio de renta por dia</span>
+                  <input type="number" class="form-control" id="precioA" placeholder="3,500.00" required>
+                  <span class="input-group-text">MXN:</span>
+                </div>
               </div>
             </div>
-            <div class="mb-4">
-              <label for="precioA" class="form-label"></label>
-              <div class="input-group mb-4">
-                <span class="input-group-text">Precio</span>
-                <input type="number" class="form-control" id="precioA" placeholder="3,000.00" required>
-                <span class="input-group-text">MXN:</span>
-              </div>
-            </div>
-            <img src="https://images.pexels.com/photos/5907675/pexels-photo-5907675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="100" class="float-end" alt="Imagen del Producto A">
           </div>
         </div>
         <div class="card mb-3">
           <div class="card-body">
-            <h4 class="card-title">Producto B <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
+            <h4 class="card-title">Ranger Raptor 2024 <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
             <div class="mb-4">
               <label for="cantidadB" class="form-label"></label>
               <div class="input-group mb-4">
-                <span class="input-group-text">Cantidad:</span>
-                <input type="number" class="form-control" id="cantidadB" placeholder="1" required>
+                <img src="https://loscoches.com/wp-content/uploads/2024/01/Ranger-raptor.png" width="500" class="float-end" alt="Imagen del Producto A">
               </div>
             </div>
             <div class="mb-4">
               <label for="precioB" class="form-label"></label>
               <div class="input-group mb-4">
-                <span class="input-group-text">Precio</span>
-                <input type="number" class="form-control" id="precioB" placeholder="7,000.00" required>
+                <span class="input-group-text">Precio de renta por dia</span>
+                <input type="number" class="form-control" id="precioB" placeholder="2,500.00" required>
                 <span class="input-group-text">MXN:</span>
               </div>
             </div>
-            <img src="https://images.pexels.com/photos/6958752/pexels-photo-6958752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="100" class="float-end" alt="Imagen del Producto A">
           </div>
         </div>
       </div>
-      <div class="col-md-6" style="display: flex; flex-direction: column; justify-content: flex-start;">
-        <div class="card mb-3" style="text-align: center;">
-          <div id="total" class="card-body">
-            <!-- El contenido dinámico será inyectado aquí por mostrarProductosYTotal() -->
-          </div>
+      <div class="col-md-6">
+        <div class="card mb-3" style="box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 8px;">
+            <div class="card-body text-center" style="background-color: #fff; padding: 20px;">
+                <h4 class="card-title" style="color: #333; margin-bottom: 15px;">Total de Renta:</h4>
+                <h6 style="color: #555; margin-bottom: 5px;">Corvette Stingray 2024: 5 dias  x $3,500.00 MXN</h6>
+                <h6 style="color: #555; margin-bottom: 5px;">Ranger Raptor 2024: 3 dias  x  $2,500.00 MXN</h6>
+                <h6 style="color: #555; margin-bottom: 5px;">Costo de Seguro: $4,000.00 MXN</h6>
+                <h5 style="color: #28a745; margin-bottom: 20px;"><strong>Total: $29,000.00 MXN</strong></h5>
+                <div class="d-flex justify-content-around mt-4">
+                    <a href="P01_orders.html" class="btn btn-primary" style="width: 48%; padding: 10px; font-size: 16px; background-color: #007bff; border: none;">Pagar</a>
+                    <button class="btn btn-danger" style="width: 48%; padding: 10px; font-size: 16px; background-color: #dc3545; border: none;">Cancelar</button>
+                </div>
+            </div>
         </div>
+    </div>
+    
     </div>
   </div>
 </div>
