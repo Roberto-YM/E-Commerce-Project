@@ -1,5 +1,5 @@
 #carouselId{
-    width: auto;
+    width: 65%;
      height:auto;
-     margin: auto; 
+     margin: auto; /* Centra horizontalmente el carrusel */
  }
