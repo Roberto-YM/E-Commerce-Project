@@ -2,12 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar.css">
+      <!--  <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar.css">-->
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar.css">
     </head>
     <body>
         <header class="header">
-            <a href="#" class="logo"><img src="ruta de imagen" alt="Logo"></a>
+            <a href="#" class="logo"><!--<img src="../estilos/Navbar/imagenes/logo_icon.ico"  id="Logo" alt="Logo">--> RetroGarage</a>
             <input type="checkbox" id="check">
             <label for="check" class="icons">
                 <i class='bx bx-menu' id="menu-icon"></i>
@@ -15,11 +16,31 @@
             </label>
             
             <nav class="navbar">
-                <a href="#" style="--i:0;">Home</a>  
+                <a href="../home/home.html" style="--i:0;">Home</a>  
                 <a href="#" style="--i:1;">About</a>
-                <a href="#" style="--i:2;">Renting cars</a>
-                <a href="#" style="--i:3;">Cars for sale</a>
+                <a href="#" style="--i:2;">Ingresar</a>
+                <a href="#" style="--i:3;">Carrito</a>
+                <div class="dropdown" style="--i:4;">
+                    <a class="dropbtn">Catálogo 
+                        <i class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../products/chevrolet.html">Chevrolet</a>
+                        <a href="../products/ford.html">Ford</a>
+                        <a href="../products/honda.html">Honda</a>
+                        <a href="../products/hyundai.html">Hyundai</a>
+                        <a href="../products/kia.html">Kia</a>
+                        <a href="../products/mazda.html">Mazda</a>
+                        <a href="../products/mg.html">MG</a>
+                        <a href="../products/nissan.html">Nissan</a>
+                        <a href="../products/renault.html">Renault</a>
+                        <a href="../products/suzuki.html">Suzuki</a>
+                        <a href="../products/toyota.html">Toyota</a>
+                        <a href="../products/volskwagen.html">Volskwagen</a>
+                    </div>
+                </div>
             </nav>
         </header>
+        
     </body>
 </html>
