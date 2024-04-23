@@ -2,3 +2,6 @@ body {
     background-color: #000000; /* Esto aplicará un fondo negro a todo el cuerpo de la página */
 }
   
+#listaProductos {
+    margin-top: calc(-100px + 5rem); /* Adjust the 100px to the height difference between the elements above #cuenta-total and #listaProductos */
+}
