@@ -1,60 +1,98 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="../estilos/home/estilos.css">
-        <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar.css">
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="icon" href="../estilos/home/images/logo.png" type="image/x-icon">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../estilos/home/estilos.css">
+    <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+zUJrHHfN/dJBDZvh0R6ap0l2ar5+76PVCmYlCc" crossorigin="anonymous">
+    <link rel="icon" href="../estilos/home/images/logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
 
-        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-        <div class="letrero"> Car Rental </div>
-        <div style="display: flex;">
-            <input type="text" class="busqueda">
-            <button class="button-64" role="button"><span class="text">Buscar</span></button>
+<div class="carousel-container">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../estilos/home/images/1.jpg" class="d-block w-100" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="../estilos/home/images/2.jpg" class="d-block w-100" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="../estilos/home/images/3.jpg" class="d-block w-100" alt="Slide 3">
+            </div>
         </div>
-        
+    </div>
+    <div class="carousel-caption">
+        <h5>Example Caption</h5>
+        <p>This is an example caption for the carousel slide.</p>
+    </div>
+</div>
 
+<div class="letrero"> Car Rental </div>
+<div style="display: flex;">
+    <input type="text" class="busqueda">
+    <button class="button-64" role="button"><span class="text">Buscar</span></button>
+</div>
 
-        <title>RetroGarage</title>
-        <header class="header">
-            <a href="#" class="logo">RetroGarage</a>
-            <input type="checkbox" id="check">
-            <label for="check" class="icons">
-                <i class='bx bx-menu' id="menu-icon"></i>
-                <i class='bx bx-x' id="close-icon"></i>
-            </label>
-            
-            <nav class="navbar">
-                <a href="../home/home.html" style="--i:0;">Home</a>  
-                <a href="../About/About.html" style="--i:1;">About</a>
-                <a href="../Navbar/modal.html" id="login-link" style="--i:2;">Ingresar</a>
-                <a href="../carrito/carrito.html" style="--i:3;">Carrito</a>
-                <div class="dropdown" style="--i:4;">
-                    <a class="dropbtn">Catálogo 
-                        <i class='bx bx-chevron-down'></i>
-                    </a>
-                    <div class="dropdown-content">
-                        <a href="../products/chevrolet.html">Chevrolet</a>
-                        <a href="../products/ford.html">Ford</a>
-                        <a href="../products/honda.html">Honda</a>
-                        <a href="../products/hyundai.html">Hyundai</a>
-                        <a href="../products/kia.html">Kia</a>
-                        <a href="../products/mazda.html">Mazda</a>
-                        <a href="../products/mg.html">MG</a>
-                        <a href="../products/nissan.html">Nissan</a>
-                        <a href="../products/renault.html">Renault</a>
-                        <a href="../products/suzuki.html">Suzuki</a>
-                        <a href="../products/toyota.html">Toyota</a>
-                        <a href="../products/volskwagen.html">Volskwagen</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
+<header class="header">
+    <a href="#" class="logo">RetroGarage</a>
+    <input type="checkbox" id="check">
+    <label for="check" class="icons">
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <i class='bx bx-x' id="close-icon"></i>
+    </label>
 
+    <nav class="navbar">
+        <a href="../home/home.html" style="--i:0;">Home</a>
+        <a href="../About/About.html" style="--i:1;">About</a>
+        <a href="../Navbar/modal.html" id="login-link" style="--i:2;">Ingresar</a>
+        <a href="../carrito/carrito.html" style="--i:3;">Carrito</a>
+        <div class="dropdown" style="--i:4;">
+            <a class="dropbtn">Catálogo
+                <i class='bx bx-chevron-down'></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="../products/chevrolet.html">Chevrolet</a>
+                <a href="../products/ford.html">Ford</a>
+                <a href="../products/honda.html">Honda</a>
+                <a href="../products/hyundai.html">Hyundai</a>
+                <a href="../products/kia.html">Kia</a>
+                <a href="../products/mazda.html">Mazda</a>
+                <a href="../products/mg.html">MG</a>
+                <a href="../products/nissan.html">Nissan</a>
+                <a href="../products/renault.html">Renault</a>
+                <a href="../products/suzuki.html">Suzuki</a>
+                <a href="../products/toyota.html">Toyota</a>
+                <a href="../products/volskwagen.html">Volskwagen</a>
+            </div>
+        </div>
+    </nav>
+</header>
 
-    </body>
-</html> 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-cC4jORceAemn1IAjPwIKN8j/UoNtzQ+NRmP0+0QSrtPwcFUzRnZ+rJ/tFi12lJ90" crossorigin="anonymous"></script>
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 1000); // Cambia la imagen cada 10 segundos
+    }
+</script>
+
+</body>
+</html>
