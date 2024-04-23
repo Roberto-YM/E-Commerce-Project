@@ -5,45 +5,17 @@
     align-items: center;
 }
 
-body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+body {
+    min-height: 100vh;
+    background-image: url('../home/images/1.jpg');
+    background-size: cover;
+    background-position: center;
 }
-
-.carousel-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.carousel-container .carousel-inner {
-    width: 100%;
-    height: 100%;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.carousel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.5);
-}
-
 
 .letrero {
     background-color: transparent; 
     color: #fff; 
-    padding: 20px; 
+    padding: 20px; /* Espacio interno */
     border-radius: 10px; 
     text-align: center; 
     font-size: 50px;
