@@ -8,61 +8,46 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Navbar para todos -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="home">
-      <img src="https://images.squarespace-cdn.com/content/v1/612eb289b9206a5538105b8f/b9a39409-c374-4b6f-9b6b-db3149bd85a7/RetroGarageLogo-Colour+%282%29.png" width="150">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="home">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="P01_about_us.html">Sobre Nosotros</a>
-        </li>
-        <li class="nav-item">
-            <select class="form-select nava-link active" style="border:none; " onchange="window.location.href=this.value;">
-              <option selected disabled>Vehículos</option>
-              <option value="volskwagen.html">Volskwagen</option>
-              <option value="toyota.html">Toyota</option>
-              <option value="kia.html">Kia</option>
-              <option value="nissan.html">Nissan</option>
-              <option value="chevrolet.html">Chevrolet</option>
-              <option value="ford.html">Ford</option>
-              <option value="mazda.html">Mazda</option>
-              <option value="hyundai.html">Hyundai</option>
-              <option value="mg.html">MG</option>
-              <option value="suzuki.html">Suzuki</option>
-              <option value="honda.html">Honda</option>
-              <option value="renault.html">Renault</option>
-            </select>
-        </li>
-        <li class="nav-item">
-            <div class="d-flex">
-              <input class="form-control me-2 " type="search" placeholder="Buscar productos..." aria-label="Search" readonly>
-              <button class="btn btn-outline-dark" type="button" disabled>Buscar</button>
-            </div>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a href="#modalIngresar" class="nav-link" data-bs-toggle="modal" data-bs-target="#modalIngresar"><i class="fas fa-user"></i> Ingresar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="P01_cart.html"><i class="fas fa-shopping-cart"></i> Carrito</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <title>RetroGarage</title>
+  <header class="header">
+      <a href="#" class="logo">RetroGarage</a>
+      <input type="checkbox" id="check">
+      <label for="check" class="icons">
+          <i class='bx bx-menu' id="menu-icon"></i>
+          <i class='bx bx-x' id="close-icon"></i>
+      </label>
+      
+      <nav class="navbar">
+          <a href="../home/home.html" style="--i:0;">Home</a>  
+          <a href="../About/About.html" style="--i:1;">About</a>
+          <a href="../Navbar/modal.html" id="login-link" style="--i:2;">Ingresar</a>
+          <a href="../carrito/carrito.html" style="--i:3;">Carrito</a>
+          <div class="dropdown" style="--i:4;">
+              <a class="dropbtn">Catálogo 
+                  <i class='bx bx-chevron-down'></i>
+              </a>
+              <div class="dropdown-content">
+                  <a href="../products/chevrolet.html">Chevrolet</a>
+                  <a href="../products/ford.html">Ford</a>
+                  <a href="../products/honda.html">Honda</a>
+                  <a href="../products/hyundai.html">Hyundai</a>
+                  <a href="../products/kia.html">Kia</a>
+                  <a href="../products/mazda.html">Mazda</a>
+                  <a href="../products/mg.html">MG</a>
+                  <a href="../products/nissan.html">Nissan</a>
+                  <a href="../products/renault.html">Renault</a>
+                  <a href="../products/suzuki.html">Suzuki</a>
+                  <a href="../products/toyota.html">Toyota</a>
+                  <a href="../products/volskwagen.html">Volskwagen</a>
+              </div>
+          </div>
+      </nav>
+  </header>
 
 <!--Inicio de Sesion -->
 <div class="modal fade" id="modalIngresar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -146,67 +131,69 @@
     </div>
   </div>
 
-<!-- carrito de compras -->
+  <div class="pt-5 mt-5"> <!-- Ajusta estas clases según la altura de tu navbar -->
+    <!-- carrito de compras -->
 <div id="listaProductos" class="container mt-5">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-3">
-          <div class="card mb-3">
-            <div class="card-body">
-              <h4 class="card-title">Corvette Stingray 2024 <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
-              <div class="mb-4">
-                <label for="cantidadA" class="form-label"></label>
-                <div>
-                  <img src="https://vehicle-images.dealerinspire.com/stock-images/thumbnails/large/chrome/85e69a165ba69414b1bf0c97a68b4fc1.png" width="500" class="float-end" alt="Imagen del Producto A">
-                </div>
-              </div>
-              <div class="mb-4">
-                <label for="precioA" class="form-label"></label>
-                <div class="input-group mb-4">
-                  <span class="input-group-text">Precio de renta por dia</span>
-                  <input type="number" class="form-control" id="precioA" placeholder="3,500.00" required>
-                  <span class="input-group-text">MXN:</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mb-3">
         <div class="card mb-3">
           <div class="card-body">
-            <h4 class="card-title">Ranger Raptor 2024 <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
+            <h4 class="card-title">Corvette Stingray 2024 <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
             <div class="mb-4">
-              <label for="cantidadB" class="form-label"></label>
-              <div class="input-group mb-4">
-                <img src="https://loscoches.com/wp-content/uploads/2024/01/Ranger-raptor.png" width="500" class="float-end" alt="Imagen del Producto A">
+              <label for="cantidadA" class="form-label"></label>
+              <div>
+                <img src="https://vehicle-images.dealerinspire.com/stock-images/thumbnails/large/chrome/85e69a165ba69414b1bf0c97a68b4fc1.png" width="500" class="float-end" alt="Imagen del Producto A">
               </div>
             </div>
             <div class="mb-4">
-              <label for="precioB" class="form-label"></label>
+              <label for="precioA" class="form-label"></label>
               <div class="input-group mb-4">
                 <span class="input-group-text">Precio de renta por dia</span>
-                <input type="number" class="form-control" id="precioB" placeholder="2,500.00" required>
+                <input type="number" class="form-control" id="precioA" placeholder="3,500.00" required>
                 <span class="input-group-text">MXN:</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card mb-3" style="box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 8px;">
-            <div class="card-body text-center" style="background-color: #fff; padding: 20px;">
-                <h4 class="card-title" style="color: #333; margin-bottom: 15px;">Total de Renta:</h4>
-                <h6 style="color: #555; margin-bottom: 5px;">Corvette Stingray 2024: 5 dias  x $3,500.00 MXN</h6>
-                <h6 style="color: #555; margin-bottom: 5px;">Ranger Raptor 2024: 3 dias  x  $2,500.00 MXN</h6>
-                <h6 style="color: #555; margin-bottom: 5px;">Costo de Seguro: $4,000.00 MXN</h6>
-                <h5 style="color: #28a745; margin-bottom: 20px;"><strong>Total: $29,000.00 MXN</strong></h5>
-                <div class="d-flex justify-content-around mt-4">
-                    <a href="P01_orders.html" class="btn btn-primary" style="width: 48%; padding: 10px; font-size: 16px; background-color: #007bff; border: none;">Pagar</a>
-                    <button class="btn btn-danger" style="width: 48%; padding: 10px; font-size: 16px; background-color: #dc3545; border: none;">Cancelar</button>
-                </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4 class="card-title">Ranger Raptor 2024 <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
+          <div class="mb-4">
+            <label for="cantidadB" class="form-label"></label>
+            <div class="input-group mb-4">
+              <img src="https://loscoches.com/wp-content/uploads/2024/01/Ranger-raptor.png" width="500" class="float-end" alt="Imagen del Producto A">
             </div>
+          </div>
+          <div class="mb-4">
+            <label for="precioB" class="form-label"></label>
+            <div class="input-group mb-4">
+              <span class="input-group-text">Precio de renta por dia</span>
+              <input type="number" class="form-control" id="precioB" placeholder="2,500.00" required>
+              <span class="input-group-text">MXN:</span>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     
+    <div class="col-md-6">
+      <div class="card mb-3" style="box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 8px;">
+          <div class="card-body text-center" style="background-color: #fff; padding: 20px;">
+              <h4 class="card-title" style="color: #333; margin-bottom: 15px;">Total de Renta:</h4>
+              <h6 style="color: #555; margin-bottom: 5px;">Corvette Stingray 2024: 5 dias  x $3,500.00 MXN</h6>
+              <h6 style="color: #555; margin-bottom: 5px;">Ranger Raptor 2024: 3 dias  x  $2,500.00 MXN</h6>
+              <h6 style="color: #555; margin-bottom: 5px;">Costo de Seguro: $4,000.00 MXN</h6>
+              <h5 style="color: #28a745; margin-bottom: 20px;"><strong>Total: $29,000.00 MXN</strong></h5>
+              <div class="d-flex justify-content-around mt-4">
+                  <a href="P01_orders.html" class="btn btn-primary" style="width: 48%; padding: 10px; font-size: 16px; background-color: #007bff; border: none;">Pagar</a>
+                  <button class="btn btn-danger" style="width: 48%; padding: 10px; font-size: 16px; background-color: #dc3545; border: none;">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
