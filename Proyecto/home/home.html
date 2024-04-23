@@ -21,22 +21,17 @@
 
         <title>RetroGarage</title>
         <header class="header">
-            <a href="#" class="logo">RetroGarage</a>
+            <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar.css">
+            <script src="../js/navbar.js"></script>
+            <a href="../home/home.html" class="logo">DrinkGuide</a>
             <input type="checkbox" id="check">
             <label for="check" class="icons">
                 <i class='bx bx-menu' id="menu-icon"></i>
                 <i class='bx bx-x' id="close-icon"></i>
             </label>
-            
-            <nav class="navbar">
-                <a href="../home/home.html" style="--i:0;">Home</a>  
-                <a href="../About/About.html" style="--i:1;">About</a>
-                <a href="../Navbar/modal.html" id="login-link" style="--i:2;">Ingresar</a>
-                <a href="../carrito/carrito.html" style="--i:3;">Carrito</a>
+            <nav class="navbar" id="navbar">
                 <div class="dropdown" style="--i:4;">
-                    <a class="dropbtn">Catálogo 
-                        <i class='bx bx-chevron-down'></i>
-                    </a>
+                    <a class="dropbtn">Catalogo<i class='bx bx-chevron-down'></i></a>
                     <div class="dropdown-content">
                         <a href="../products/chevrolet.html">Chevrolet</a>
                         <a href="../products/ford.html">Ford</a>
@@ -54,7 +49,6 @@
                 </div>
             </nav>
         </header>
-
 
     </body>
 </html> 

@@ -4,12 +4,13 @@
     min-height: 10vh;
     overflow: hidden;
     background-color: transparent;
-    margin-top: -590px;
+  
 }
 .row {
     width: 100%;
     padding: 50px, 100px; 
-    margin-top: -50px;
+    margin-top: 100px;
+    
 }
 .image-section {
     width: 30%;
@@ -33,13 +34,13 @@
 .content h2 {
     font-size: 40px;
     font-family: sans-serif;
-    color: #d6a017;
-    margin-top: -40px;
+    color: #0d730d;
+ 
 }
 .content p {
     font-size: 20px;
     font-family: serif;
-    margin-top: -20px;
+    margin-top: 10px;
     line-height: 1.5;
     color: white;
 }
