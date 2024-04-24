@@ -103,6 +103,80 @@
     </div>
 </div>
 
+  <!-- Registro de Usuarios -->
+  <div class="modal fade" id="modalPago" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;">Metodo de Pago</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="container">
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Nombre" required>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Apellido" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Numero de tarjeta" required>
+              </div>
+
+              <div class="row">
+
+                <div class="col-6">
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="mb-3">
+                          <input type="number" class="form-control" placeholder="Mes" required>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="mb-3">
+                          <input type="number" class="form-control" placeholder="Año" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="CVV" required>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Correo electrónico" required>
+              </div>
+
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Numero de celular" required>
+              </div>
+
+            </div>
+            <div style="text-align: center;">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Pagar</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div class="pt-5"> <!-- Changed this to pt-5 for consistency -->
   <div id="cuenta-total" class="container mt-4">
     <div class="row justify-content-around"> <!-- Wrap the column in a row and use justify-content-end -->
@@ -115,7 +189,7 @@
               <h6 style="color: #000; margin-bottom: 5px;">Costo de Seguro </h6> <b id="cantidad">$4,000.00</b><b> MXN</b>  <br></br>
               <h5 style="color: #28a745; margin-bottom: 20px;"><strong>Total: $29,000.00 MXN</strong></h5>
               <div class="d-flex justify-content-around mt-4">
-                  <a href="P01_orders.html" class="btn btn-primary" style="width: 48%; padding: 10px; font-size: 16px; background-color: #007bff; border: none;">Pagar</a>
+                  <a type="button" href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPago" style="width: 48%; padding: 10px; font-size: 16px; background-color: #007bff; border: none;">Pagar</a>
                   <button class="btn btn-danger" style="width: 48%; padding: 10px; font-size: 16px; background-color: #dc3545; border: none;">Cancelar</button>
               </div>
             </div>
