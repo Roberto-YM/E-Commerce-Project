@@ -50,116 +50,12 @@
     </nav>
 </header>
 
-<!--Inicio de Sesion -->
-<div class="modal fade" id="modalIngresar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Inicio de Sesión</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="correo" class="form-label">Correo</label>
-              <div class="input-group mb-3">
-              <input type="email" class="form-control" id="correo" required>
-              <span class="input-group-text"><i class="fas fa-user" ></i></span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="contrasena" class="form-label">Contraseña</label>
-              <div class="input-group mb-3">
-                <input type="password" class="form-control" id="contrasena" required>
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
-              </div>
-            </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="recordar">
-              <label class="form-check-label" for="recordar">Recordar</label>
-            </div>
-            <div style="text-align: center;">
-              <button type="submit" class="btn btn-primary">Login</button>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer" style="justify-content: center;">
-          <p>¿No tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#modalRegistro" role="button">Regístrate aquí</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Registro de Usuarios -->
-  <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="container">
-              <div class="row">
-                <div class="col-6">
-                  <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Nombre" required>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Apellido" required>
-                  </div>
-                </div>
-              </div>
-              <div class="mb-3">
-                <input type="email" class="form-control" placeholder="Correo electrónico" required>
-              </div>
-              <div class="mb-3">
-                <input type="password" class="form-control" placeholder="Contraseña" required>
-              </div>
-              <div class="mb-3">
-                <input type="password" class="form-control" placeholder="Confrimar contraseña" required>
-              </div>
-            </div>
-            <div style="text-align: center;">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Registrarse</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
-<div class="pt-5 mt-5">
-  <div id="cuenta-total" class="container mt-4">
-    <div class="col-md-6 offset-md-7">
-      <div class="card mb-3" style="box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 8px;">
-          <div class="card-body text-center" style="background-color: #fff; padding: 20px;">
-              <h4 class="card-title" style="color: #000; margin-bottom: 15px;">Total de Renta:</h4>
-              <h6 id="nombre_carro" style="color: #000; margin-bottom: 5px;">Corvette Stingray 2024</h6> <b id="dias">5 dias</b><b> x </b><b id="cantidad">$3,500.00</b><b> MXN</b>
-              <h6 style="color: #000; margin-bottom: 5px;">Ranger Raptor 2024 </h6> <b id="dias">3 dias</b><b> x </b><b id="cantidad">$2,500.00</b><b> MXN</b>
-              <h6 style="color: #000; margin-bottom: 5px;">Costo de Seguro </h6> <b id="cantidad">$4,000.00</b><b> MXN</b>  <br></br>
-              <h5 style="color: #28a745; margin-bottom: 20px;"><strong>Total: $29,000.00 MXN</strong></h5>
-              <div class="d-flex justify-content-around mt-4">
-                  <a href="P01_orders.html" class="btn btn-primary" style="width: 48%; padding: 10px; font-size: 16px; background-color: #007bff; border: none;">Pagar</a>
-                  <button class="btn btn-danger" style="width: 48%; padding: 10px; font-size: 16px; background-color: #dc3545; border: none;">Cancelar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>    
-
-
-<div class="pt-5 mt-5"> 
-  <div id="listaProductos" class="container mt-5">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-3">
+<div class="pt-5"> <!-- Keep the padding consistent with cuenta-total -->
+  <div id="listaProductos" class="container mt-4">
+    <div class="row justify-content-around"> <!-- Wrap the column in a row and use justify-content-end -->
+      <div class="col-md-">
+        
           <div class="card mb-3">
             <div class="card-body">
               <h4 class="card-title">Corvette Stingray 2024 <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></h4>
@@ -179,7 +75,7 @@
               </div>
             </div>
           </div>
-        </div>
+
         
         <div class="card mb-3">
           <div class="card-body">
@@ -200,8 +96,32 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
+</div>
+
+<div class="pt-5"> <!-- Changed this to pt-5 for consistency -->
+  <div id="cuenta-total" class="container mt-4">
+    <div class="row justify-content-around"> <!-- Wrap the column in a row and use justify-content-end -->
+      <div class="col-md-">
+        <div class="card mb-3" style="box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 8px;">
+          <div class="card-body text-center" style="background-color: #fff; padding: 20px;">
+              <h4 class="card-title" style="color: #000; margin-bottom: 15px;">Total de Renta:</h4>
+              <h6 id="nombre_carro" style="color: #000; margin-bottom: 5px;">Corvette Stingray 2024</h6> <b id="dias">5 dias</b><b> x </b><b id="cantidad">$3,500.00</b><b> MXN</b>
+              <h6 style="color: #000; margin-bottom: 5px;">Ranger Raptor 2024 </h6> <b id="dias">3 dias</b><b> x </b><b id="cantidad">$2,500.00</b><b> MXN</b>
+              <h6 style="color: #000; margin-bottom: 5px;">Costo de Seguro </h6> <b id="cantidad">$4,000.00</b><b> MXN</b>  <br></br>
+              <h5 style="color: #28a745; margin-bottom: 20px;"><strong>Total: $29,000.00 MXN</strong></h5>
+              <div class="d-flex justify-content-around mt-4">
+                  <a href="P01_orders.html" class="btn btn-primary" style="width: 48%; padding: 10px; font-size: 16px; background-color: #007bff; border: none;">Pagar</a>
+                  <button class="btn btn-danger" style="width: 48%; padding: 10px; font-size: 16px; background-color: #dc3545; border: none;">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
