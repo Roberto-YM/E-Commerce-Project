@@ -28,31 +28,31 @@ function agregarCards() {
 
     // Obtener los productos del servidor
     obtenerProductos()
-        .then(data => {
-            // Genera las cards y las agrega al contenedor
-            data.forEach(function(car) {
-                var card = document.createElement("div");
-                card.className = "product";
-                card.innerHTML = `
-                    <img src="${car.img}" width="300px" alt="${car.nombre}">
-                    <div class="product-info">
-                        <h4 class="product-title">${car.nombre}</h4>
-                        <p class="product-price">$${car.Precio} - el dia</p>
-                        <a href="#" class="product-btn rent-btn">Renta Ahora</a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
+    .then(data => {
+        // Genera las cards y las agrega al contenedor
+        data.forEach(function(car) {
+            var card = document.createElement("div");
+            card.className = "product";
+            card.innerHTML = `
+                <img src="${car.img}" width="300px" alt="${car.nombre}">
+                <div class="product-info">
+                    <h4 class="product-title">${car.nombre}</h4>
+                    <p class="product-price">$${car.Precio} - el dia</p>
+                    <a href="#" class="product-btn rent-btn">Renta Ahora</a>
+                </div>
+            `;
+            container.appendChild(card);
             // Agregar event listener al botón de rentar después de agregar las cards
-            document.querySelectorAll('.rent-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    abrirModal();
-                });
+            card.querySelector('.rent-btn').addEventListener('click', function() {
+                abrirModal(car); // Pasa el objeto carro a la función abrirModal
             });
-        })
-        .catch(error => console.error('Error:', error));
+        });
+    })
+    .catch(error => console.error('Error:', error));
+
 }
 
 // Llama a la función para agregar las cards al cargar el contenido
 agregarCards();
+
 

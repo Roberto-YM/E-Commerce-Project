@@ -5,6 +5,9 @@ const app = express();
 const port = 3000;
 
 app.use(cors());
+app.use(express.static('./Proyecto'));
+app.use(express.json());
+app.use(express.urlencoded());
 
 // Conexión a la base de datos
 mongoose.connect('mongodb+srv://admin:admin@myapp.m2pe9wf.mongodb.net/RetroGarage', {
@@ -99,6 +102,78 @@ app.get('/api/ford', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' }); // Manejar errores
     }
 });
+
+
+// Ruta para obtener todos los autos de todas las marcas
+app.get('/api/all-cars', async (req, res) => {
+    try {
+        // Utilizamos un array para almacenar todos los autos de cada marca
+        let allCars = [];
+
+        // Obtenemos los autos de cada marca y los agregamos al array
+        const toyotaCars = await Toyota.find();
+        allCars = allCars.concat(toyotaCars);
+
+        const chevroletCars = await chevrolet.find();
+        allCars = allCars.concat(chevroletCars);
+
+        const mazdaCars = await mazda.find();
+        allCars = allCars.concat(mazdaCars);
+
+        const cadillacCars = await cadillac.find();
+        allCars = allCars.concat(cadillacCars);
+
+        const fordCars = await ford.find();
+        allCars = allCars.concat(fordCars);
+
+        // Enviamos todos los autos como respuesta en formato JSON
+        res.json(allCars);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Internal Server Error' }); // Manejar errores
+    }
+});
+
+
+//users
+
+//definimos el esquema
+let userSchema = mongoose.Schema({
+    nombre: String,
+    email: String,
+    Password:String,
+});
+
+
+
+app.get('/',function(req,res){
+    res.sendFile( __dirname + '/Proyecto/home/home.html')
+});
+
+app.post('/', (req, res) => {
+    // Create the model
+    let User = mongoose.model('users', userSchema);
+
+    // Extract data from request body
+    let { nombre, email, pswd } = req.body;
+
+    // Create a new user instance
+    let newUser = new User({ nombre, email, Password: pswd });
+
+    // Save the user to the database
+    newUser.save().then((doc) => {
+        console.log("Usuario creado: ", doc);
+        res.status(200).json({ success: true, message: "Usuario creado exitosamente" });
+    }).catch((err) => {
+        console.error("Error al crear usuario: ", err);
+        res.status(200).json({ success: false, message: "Error al crear usuario"});
+    });
+});
+
+
+
+
+
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
