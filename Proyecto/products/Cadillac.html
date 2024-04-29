@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../estilos/cards/estilos/cards.css">
+        <link rel="stylesheet" href="../estilos/home/estilos.css">
+        <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="icon" href="../estilos/home/images/logo.png" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <title>RetroGarage(Cadillac)</title>
+        <header class="header">
+            <a href="#" class="logo">RetroGarage</a>
+            <input type="checkbox" id="check">
+            <label for="check" class="icons">
+                <i class='bx bx-menu' id="menu-icon"></i>
+                <i class='bx bx-x' id="close-icon"></i>
+            </label>
+            
+            <nav class="navbar">
+                <a href="../home/home.html" style="--i:0;">Home</a>  
+                <a href="../About/About.html" style="--i:1;">About</a>
+                <a href="../Navbar/users.html" id="login-link" style="--i:2;">Ingresar</a>
+                <a href="../carrito/carrito.html" style="--i:3;">Carrito</a>
+                <div class="dropdown" style="--i:4;">
+                    <a class="dropbtn">Catálogo 
+                        <i class='bx bx-chevron-down'></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../products/chevrolet.html">Chevrolet</a>
+                        <a href="../products/ford.html">Ford</a>
+                        <a href="../products/mazda.html">Mazda</a>
+                        <a href="../products/toyota.html">Toyota</a>
+                        <a href="../products/Cadillac.html">Cadillac</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section class="products">
+            <h1>Cadillac</h1>
+            <div id="product-container" class="all-products">
+                
+            </div>
+            <script src="../js/cadillac.js"></script>
+        </section>
+        
+        <script src="../js/modal_renta.js"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        
+
+
+    </body>
+</html> 

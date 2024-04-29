@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../estilos/Navbar/estilos/modal.css">
+        <link rel="icon" href="../estilos/home/images/logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+
+    <header class="header">
+        <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar_2.css">
+        <script src="../js/navbar.js"></script>
+        <a href="../home/home.html" class="logo">DrinkGuide</a>
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon"></i>
+        </label>
+        <nav class="navbar" id="navbar">
+            <div class="dropdown" style="--i:4;">
+                <a class="dropbtn">Catalogo<i class='bx bx-chevron-down'></i></a>
+                <div class="dropdown-content">
+                    <a href="../products/chevrolet.html">Chevrolet</a>
+                        <a href="../products/ford.html">Ford</a>
+                        <a href="../products/mazda.html">Mazda</a>
+                        <a href="../products/toyota.html">Toyota</a>
+                        <a href="../products/Cadillac.html">Cadillac</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+        <title>Iniciar seción</title>
+          <!--Inicio Modal de inicio de seción-->
+          <div id="modal" class="main">
+            <input type="checkbox" id="chk" aria-hidden="true">
+            <div class="signup">
+                <form method="post" action="/">
+                    <label for="chk" aria-hidden="true">Sign Up</label>
+                    <input type="text" name="nombre" placeholder="Full name" required="">
+                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="password" name="pswd" placeholder="Password" required="">
+                    <button>Sign Up</button>
+                </form>
+            </div>
+            <div class="login">
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="email" name="email" placeholder="Email" id="email" required="">
+                <input type="password" name="pswd" placeholder="password" id="pswd" required="">
+                <button>Login</button>
+            </div>
+        </div>
+    <!--Final Modal de inicio de seción-->
+    </body>
+</html>

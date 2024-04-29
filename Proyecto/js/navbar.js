@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const links = [
         "Home", "../home/home.html",
         "About", "../About/About.html",
-        "Ingresar", "../Navbar/modal.html",
+        "Ingresar", "../Navbar/users.html",
         "Carrito", "../carrito/carrito.html",
     ];
 

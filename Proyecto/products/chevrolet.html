@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Toyota</title>
-      <!--  <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar.css">-->
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="../estilos/cards/estilos/cards.css">
+        <link rel="stylesheet" href="../estilos/home/estilos.css">
         <link rel="stylesheet" href="../estilos/Navbar/estilos/navbar.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!--FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="icon" href="../estilos/home/images/logo.png" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
+        <title>RetroGarage(Chevrolet)</title>
         <header class="header">
-            <a href="#" class="logo"><!--<img src="../estilos/Navbar/imagenes/logo_icon.ico"  id="Logo" alt="Logo">--> RetroGarage</a>
+            <a href="#" class="logo">RetroGarage</a>
             <input type="checkbox" id="check">
             <label for="check" class="icons">
                 <i class='bx bx-menu' id="menu-icon"></i>
@@ -24,9 +21,9 @@
             
             <nav class="navbar">
                 <a href="../home/home.html" style="--i:0;">Home</a>  
-                <a href="#" style="--i:1;">About</a>
-                <a href="../Navbar/modal.html" style="--i:2;">Ingresar</a>
-                <a href="#" style="--i:3;">Carrito</a>
+                <a href="../About/About.html" style="--i:1;">About</a>
+                <a href="../Navbar/users.html" id="login-link" style="--i:2;">Ingresar</a>
+                <a href="../carrito/carrito.html" style="--i:3;">Carrito</a>
                 <div class="dropdown" style="--i:4;">
                     <a class="dropbtn">Catálogo 
                         <i class='bx bx-chevron-down'></i>
@@ -34,78 +31,26 @@
                     <div class="dropdown-content">
                         <a href="../products/chevrolet.html">Chevrolet</a>
                         <a href="../products/ford.html">Ford</a>
-                        <a href="../products/honda.html">Honda</a>
-                        <a href="../products/hyundai.html">Hyundai</a>
-                        <a href="../products/kia.html">Kia</a>
                         <a href="../products/mazda.html">Mazda</a>
-                        <a href="../products/mg.html">MG</a>
-                        <a href="../products/nissan.html">Nissan</a>
-                        <a href="../products/renault.html">Renault</a>
-                        <a href="../products/suzuki.html">Suzuki</a>
                         <a href="../products/toyota.html">Toyota</a>
-                        <a href="../products/volskwagen.html">Volskwagen</a>
+                        <a href="../products/Cadillac.html">Cadillac</a>
                     </div>
                 </div>
             </nav>
         </header>
-        
+        <section class="products">
+            <h1>Chevrolet</h1>
+            <div id="product-container" class="all-products">
+                
+            </div>
+            <script src="../js/chevrolet.js"></script>
+        </section>
+
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="../js/modal_renta.js"></script>
+
     
-<!-- carrito de compras -->
-<div id="listaProductos" class="container mt-5">
-  <div class="row">
-    <div class="col-md-6">
-
-      <div class="card mb-3">
-        <div class="card-body">
-          <h4 class="card-title">Corvette Stingray 2024 <button type="button" class="btn btn-primary">Agregar al Carrito</button></h4>
-          <div class="mb-4">
-            <label for="cantidadA" class="form-label"></label>
-            <div>
-              <img src="https://vehicle-images.dealerinspire.com/stock-images/thumbnails/large/chrome/85e69a165ba69414b1bf0c97a68b4fc1.png" width="500" class="float-end" alt="Imagen del Producto A">
-            </div>
-          </div>
-          <div class="mb-4">
-            <label for="precioA" class="form-label"></label>
-            <div class="input-group mb-4">
-              <span class="input-group-text">Precio de renta por dia</span>
-              <input type="number" class="form-control" id="precioA" placeholder="3,500.00" required>
-              <span class="input-group-text">MXN:</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card mb-3">
-        <div class="card-body">
-          <h4 class="card-title">Camaro ZL1 2024 <button type="button" class="btn btn-primary">Agregar al Carrito</button></h4>
-          <div class="mb-4">
-            <label for="cantidadB" class="form-label"></label>
-            <div class="input-group mb-4">
-              <img src="https://www.chevrolet.com.mx/content/dam/chevrolet/na/mx/es/index/performance/2023-camaro-zl1/colorizer/jellys/rapid-blue.jpg?imwidth=960" width="500" class="float-end" alt="Imagen del Producto A">
-            </div>
-          </div>
-          <div class="mb-4">
-            <label for="precioB" class="form-label"></label>
-            <div class="input-group mb-4">
-              <span class="input-group-text">Precio de renta por dia</span>
-              <input type="number" class="form-control" id="precioB" placeholder="3,000.00" required>
-              <span class="input-group-text">MXN:</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6" style="display: flex; flex-direction: column; justify-content: flex-start;">
-      <div class="card mb-3" style="text-align: center;">
-        <div id="total" class="card-body">
-          <!-- El contenido dinámico será inyectado aquí por mostrarProductosYTotal() -->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../controllers/shopping_cart.js"></script>
-</body>
-</html>
+        
+      
+    </body>
+</html> 

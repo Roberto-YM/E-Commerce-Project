@@ -95,8 +95,8 @@
 
 .dropdown {
     position: relative; /* Cambiado de absolute a relative */
-    margin-left: 30rem;
-    top: 26px;
+    margin-left: 32rem;
+    top: -12px;
     margin-top: -1rem;
 }
 
