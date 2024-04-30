@@ -1,8 +1,10 @@
+require("dotenv").config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
 const app = express();
 const port = 3000;
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
 app.use(cors());
 app.use(express.static('./Proyecto'));
