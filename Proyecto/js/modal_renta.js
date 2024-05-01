@@ -22,6 +22,12 @@ function handleAdultCheckboxClick(adultCheckbox) {
     });
 }
 
+function handleFormSubmit(event) {
+    event.preventDefault(); // Evitar el envío del formulario
+    // Aquí puedes agregar la lógica para guardar la renta o simplemente mostrar un mensaje de éxito
+    alert("¡La renta se guardó con éxito!");
+}
+
 
 function abrirModal(car) {
     // Eliminar el modal existente si hay alguno
@@ -29,7 +35,7 @@ function abrirModal(car) {
     if (existingModal) {
         existingModal.remove();
     }
-
+    //document.querySelector('form').addEventListener('submit', handleFormSubmit);
      // Detalles de los seguros
      const seguros = [
         { nombre: "Basico", precio: 8500, descripcion: "Responsabilidad civil: Cubre los daños causados a terceros en caso de un accidente en el que el conductor sea responsable. Esto puede incluir daños a vehículos de otras personas, propiedades u lesiones corporales. Cobertura de lesiones personales: Proporciona cobertura para gastos médicos del conductor y sus pasajeros en caso de un accidente, independientemente de quién tenga la culpa. Cobertura de daños a la propiedad: Puede cubrir los costos de reparación o reemplazo de vehículos u otras propiedades dañadas en un accidente en el que el conductor sea responsable." },
@@ -49,7 +55,7 @@ function abrirModal(car) {
         <img src="${car.img}" width="300px" alt="${car.nombre}">
       </div>
 
-      <form class="w3-container" action="/rent_car.php">
+      <form class="w3-container" method="post" action="/rents">
         <div class="w3-section">
           <label style="color: black;"><b>Email</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="email" name="correo" required>
@@ -82,15 +88,17 @@ function abrirModal(car) {
                     <label  style="color: black;"><b>Fecha Final</b></label>
                     <input class="w3-input w3-border w3-margin-bottom" type="date" name="end_date" required>
                     <label  style="color: black;"><b>Tipo de carro: </b></label>
-                    <label  style="color: black;">${car.nombre}</label><br>
-                    <label  style="color: black;"><b>Precio: </b>$${car.Precio} - el día</label>
+                    <label  style="color: black;" name="car_name">${car.nombre}</label><br>
+                    <label  style="color: black;" name="car_precio"><b>Precio: </b>$${car.Precio} - el día</label>
+                    <input type="hidden" name="car_name" value="${car.nombre}">
+                    <input type="hidden" name="car_precio" value="${car.Precio}">
                     <hr>
                     <h4 style="color: black;"><b>Desglose de la Renta:</b></h4>
                     <div id="rent-breakdown"></div>
                     
           
 
-          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Rent Now</button>
+          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" >Rent Now</button>
         </div>
       </form>
 
@@ -120,13 +128,18 @@ function abrirModal(car) {
     var precioPorDia = carPrecio * dias;
     var preciTotal = precioPorDia + precioSeguro
     var rentBreakdown = `
+    <input type="hidden" name="seguro_precio" value="${precioSeguro}">
+    <input type="hidden" name="car_price_per_day" value="${carPrecio}">
+    <input type="hidden" name="dias" value="${dias}">
+    <input type="hidden" name="total" value="${preciTotal}">
     <p style="color: black;">Precio del seguro: $${precioSeguro}</p>
     <p style="color: black;">Precio del carro por día: $${carPrecio}</p>
     <p style="color: black;">Cantidad de días: ${dias}</p>
     <p style="color: black;">Total por días de alquiler: $${precioPorDia}</p>
-    <p style="color: black;"><strong>Total de la renta: $${preciTotal}</strong></p>
+    <p style="color: black;">Total de la renta: $${preciTotal}</p>
 `;
 document.getElementById('rent-breakdown').innerHTML = rentBreakdown;
+
 });
 
    

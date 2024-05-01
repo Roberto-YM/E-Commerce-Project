@@ -143,6 +143,7 @@ let userSchema = mongoose.Schema({
     email: String,
     Password:String,
 });
+let User = mongoose.model('users', userSchema);
 
 
 
@@ -150,17 +151,11 @@ app.get('/',function(req,res){
     res.sendFile( __dirname + '/Proyecto/home/home.html')
 });
 
-app.post('/', (req, res) => {
-    // Create the model
-    let User = mongoose.model('users', userSchema);
 
-    // Extract data from request body
+app.post('/users', (req, res) => {
     let { nombre, email, pswd } = req.body;
-
-    // Create a new user instance
     let newUser = new User({ nombre, email, Password: pswd });
-
-    // Save the user to the database
+ 
     newUser.save().then((doc) => {
         console.log("Usuario creado: ", doc);
         res.status(200).json({ success: true, message: "Usuario creado exitosamente" });
@@ -168,6 +163,69 @@ app.post('/', (req, res) => {
         console.error("Error al crear usuario: ", err);
         res.status(200).json({ success: false, message: "Error al crear usuario"});
     });
+});
+
+/*
+let rentaSchema = new mongoose.Schema({
+    nombre: String,
+    apellido: String,
+    correo: String,
+    Seguro: String,
+    Seguro_precio:String,
+    Fecha_inicio: String,
+    Fecha_final: String,
+    Dias:String,
+    car_name:String,
+    car_precio:String,
+    Total_renta:String
+});
+let Rent = mongoose.model('rents', rentaSchema);
+
+app.post('/rents',(req,res)=>{
+    let { full_name,last_name, correo,insurance_type,seguro_precio,start_date,end_date,dias,car_name,car_precio,total} = req.body;
+    let newRent = new Rent({full_name,last_name, correo,insurance_type,seguro_precio,start_date,end_date,dias,car_name,car_precio,total});
+    newRent.save().then((doc) => {
+        console.log("Renta creada: ", doc);
+        res.status(200).json({ success: true, message: "Renta creada exitosamente" ,doc});
+    }).catch((err) => {
+        console.error("Error al crear usuario: ", err);
+        res.status(200).json({ success: false, message: "Error al crear usuario" });
+    });
+
+
+})*/
+
+let rentaSchema = new mongoose.Schema({
+    correo: String,
+    full_name: String,
+    last_name: String,
+    insurance_type: String,
+    start_date: String,
+    end_date: String,
+    car_name: String,
+    car_precio: String,
+    seguro_precio: String,
+    dias: String,
+    total: String
+
+
+
+});
+let Rent = mongoose.model('rents', rentaSchema);
+
+app.post('/rents', (req, res) => {
+
+    let {correo,full_name,last_name,insurance_type,start_date,end_date,car_name,car_precio,seguro_precio,dias,total} = req.body;
+    let newRent = Rent({correo,full_name,last_name,insurance_type,start_date,end_date,car_name,car_precio,seguro_precio,dias,total});
+
+        newRent.save().then((doc) => {
+            console.log("Renta creada: ", doc);
+            res.status(200).json({ success: true, message: "Renta creada exitosamente" ,doc});
+        }).catch((err) => {
+            console.error("Error al crear usuario: ", err);
+            res.status(200).json({ success: false, message: "Error al crear usuario" });
+        });
+
 });
 
 

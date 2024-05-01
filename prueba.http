@@ -1,0 +1,18 @@
+POST  http://localhost:3000/rents
+Content-Type: application/json
+
+{
+    "full_name":"isaac" ,
+    "last_name": "Novoa",
+    "correo":"isaac.alejandro@gmail.com" ,
+    "insurance_type": "Premium",
+    "seguro_precio":"15000",
+    "start_date": "2024-05-03",
+    "end_date": "2024-05-09",
+    "dias": "4" ,
+    "car_name": "Escalade 2024" ,
+    "car_precio": "3500" ,
+    "total":"25000"
+
+    
+}
