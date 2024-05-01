@@ -55,7 +55,7 @@ function abrirModal(car) {
         <img src="${car.img}" width="300px" alt="${car.nombre}">
       </div>
 
-      <form class="w3-container" method="post" action="/rents">
+      <form class="w3-container" method="post" action="/products/rents">
         <div class="w3-section">
           <label style="color: black;"><b>Email</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="email" name="correo" required>

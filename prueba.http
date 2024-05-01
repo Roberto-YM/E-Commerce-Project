@@ -1,18 +1,29 @@
-POST  http://localhost:3000/rents
+//Ruta para eliminar un producto por medio del id
+###
+DELETE http://localhost:3000/admin/delete/product/6631e01ddf7d25baf5844147
+Content-Type: application/json
+
+//eliminar usuarios pormedio del id
+###
+DELETE http://localhost:3000/admin/delete/users/6631cbe4e8b6a0c9246139e4
+Content-Type: application/json
+
+//Ruta para actualizar cualquier producto por medio de el id
+###
+PUT http://localhost:3000/admin/update/products/662eb2b5d128b2f3e2b4de2f
 Content-Type: application/json
 
 {
-    "full_name":"isaac" ,
-    "last_name": "Novoa",
-    "correo":"isaac.alejandro@gmail.com" ,
-    "insurance_type": "Premium",
-    "seguro_precio":"15000",
-    "start_date": "2024-05-03",
-    "end_date": "2024-05-09",
-    "dias": "4" ,
-    "car_name": "Escalade 2024" ,
-    "car_precio": "3500" ,
-    "total":"25000"
+    "Precio":"1500"
+}
 
-    
+//Ruta para crear un producto, espesificando la colección
+###
+POST http://localhost:3000/admin/create/products/toyotas
+Content-Type: application/json
+
+{
+    "nombre":"prueba",
+    "Precio":"1500",
+    "img":"prueba"
 }

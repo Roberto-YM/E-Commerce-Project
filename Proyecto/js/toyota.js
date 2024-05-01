@@ -1,5 +1,5 @@
 function obtenerProductos() {
-    const url = "http://localhost:3000/api/toyota"; // Cambia la URL según la ruta de tu servidor
+    const url = "http://localhost:3000/products/toyota"; // Cambia la URL según la ruta de tu servidor
 
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
