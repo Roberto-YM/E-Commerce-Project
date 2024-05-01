@@ -27,7 +27,6 @@ db.once('open', function() {
     console.log('Connected to MongoDB');
 });
 
-
 app.use('/',router);
 
 // Iniciar el servidor
