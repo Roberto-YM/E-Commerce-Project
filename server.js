@@ -233,8 +233,8 @@ app.post('/rents', (req, res) => {
 
 
 const storeItems = new Map([
-    [1, { priceInCents: 10000, name: "Learn React Today" }],
-    [2, { priceInCents: 20000, name: "Learn CSS Today" }],
+    [1, { priceInCents: 10000, name: "Learn React Today" }],   // Mapa de la informacion que contiene el carrit de stripe
+    [2, { priceInCents: 20000, name: "Learn CSS Today" }],     
 ]);
 
 
