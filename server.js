@@ -59,7 +59,7 @@ app.post("/create-checkout-session", async (req, res) => {    //stripe checkout 
             quantity: item.quantity,
           }
         }),
-        success_url: `${process.env.CLIENT_URL}/succes.html`,  //http://localhost:3000/carrito/success.html
+        success_url: `${process.env.CLIENT_URL}/succes.html`,  //http://localhost:3000/carrito/succes.html
         cancel_url: `${process.env.CLIENT_URL}/cancel.html`,
       });
       res.json({ url: session.url });
