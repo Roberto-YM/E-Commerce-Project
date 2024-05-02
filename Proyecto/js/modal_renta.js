@@ -85,7 +85,7 @@ function abrirModal(car) {
                     <label  style="color: black;"><b>Fecha Final</b></label>
                     <input class="w3-input w3-border w3-margin-bottom" type="date" name="end_date" required>
                     <label  style="color: black;"><b>Tipo de carro: </b></label>
-                    <label  style="color: black;" name="car_name">${car.nombre}</label><br>
+                    <label  style="color: black;" id="nombre_carro" name="car_name">${car.nombre}</label><br>
                     <label  style="color: black;" name="car_precio"><b>Precio: </b>$${car.Precio} - el día</label>
                     <input type="hidden" name="car_name" value="${car.nombre}">
                     <input type="hidden" name="car_precio" value="${car.Precio}">
@@ -109,7 +109,6 @@ function abrirModal(car) {
    // Agregar el modal al documento y mostrarlo
    document.body.insertAdjacentHTML('beforeend', modalContent);
    document.getElementById('id01').style.display = 'block';
-   document.getElementById('rentNowButton').addEventListener('click', saveRentalToSession);
 
    // Agregar evento change al select para actualizar la descripción del seguro seleccionado
    document.getElementById('insurance_type').addEventListener('change', function() {
@@ -151,8 +150,9 @@ function saveRentalToSession() {
     const lastName = document.querySelector('[name="last_name"]').value;
     const startDate = document.querySelector('[name="start_date"]').value;
     const endDate = document.querySelector('[name="end_date"]').value;
-    const carName = document.querySelector('[name="car_name"]').value;
+    const carName = document.getElementById("nombre_carro").value;
     const carPricePerDay = document.querySelector('[name="car_precio"]').value;
+    const selectedInsurance = document.getElementById('insurance_type').selectedOptions[0];
     const insuranceName = selectedInsurance.value;
     const insurancePrice = selectedInsurance.getAttribute('data-precio');
     const total = document.querySelector('[name="total"]').value;
