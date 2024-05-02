@@ -29,6 +29,7 @@ db.once('open', function() {
 
 app.use('/',router);
 
+
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);

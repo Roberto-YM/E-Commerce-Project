@@ -109,6 +109,7 @@ function abrirModal(car) {
    // Agregar el modal al documento y mostrarlo
    document.body.insertAdjacentHTML('beforeend', modalContent);
    document.getElementById('id01').style.display = 'block';
+   document.getElementById('rentNowButton').addEventListener('click', saveRentalToSession);
 
    // Agregar evento change al select para actualizar la descripción del seguro seleccionado
    document.getElementById('insurance_type').addEventListener('change', function() {
