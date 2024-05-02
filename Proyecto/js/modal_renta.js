@@ -1,6 +1,4 @@
-  
-  
-  function handleCheckboxClick(checkbox) {
+function handleCheckboxClick(checkbox) {
     var checkboxes = document.querySelectorAll('input[type="checkbox"]');
     if (checkbox.checked) {
         checkboxes.forEach(function (cb) {
@@ -27,7 +25,6 @@ function handleFormSubmit(event) {
     // Aquí puedes agregar la lógica para guardar la renta o simplemente mostrar un mensaje de éxito
     alert("¡La renta se guardó con éxito!");
 }
-
 
 function abrirModal(car) {
     // Eliminar el modal existente si hay alguno
