@@ -1,6 +1,6 @@
+
 document.getElementById("boton_pagar_carrito").addEventListener("click", function(event) {
     event.preventDefault(); // Esto evita que el navegador siga el enlace o realice la acción predeterminada.
-    console.log("Botón pagar clickeado, se ejecuta fetch");
 
     fetch("http://localhost:3000/create-checkout-session", {
         method: "POST",
