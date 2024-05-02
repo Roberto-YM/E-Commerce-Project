@@ -54,7 +54,7 @@ router.delete("/delete/users/:id",async(req,res) =>{
 
 });
 
-//update productos y usuarios 
+//update productos 
 router.put("/update/products/:id", async(req,res)=> {
     const productId = req.params.id;
     const { nombre, Precio, img } = req.body;

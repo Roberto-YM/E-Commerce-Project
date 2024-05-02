@@ -1,28 +1,88 @@
 const express = require('express');
-const router = express.Router();
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const router = express.Router();
 
-
+//FUNCIONES
+const validarCorreo = async (correo) => {
+    try {
+        const usuarioExistente = await User.findOne({ email: correo });
+        return !! usuarioExistente;
+    } catch (error) {
+        console.error("Error al validar correo:", error);
+        throw error;
+    }
+}; 
 
 //Subir info de usuario a la base de datos
 let userSchema = mongoose.Schema({
     nombre: String,
     email: String,
     Password:String,
-});
-let User = mongoose.model('users', userSchema);
-router.post('/users', (req, res) => {
-    let { nombre, email, pswd } = req.body;
-    let newUser = new User({ nombre, email, Password: pswd });
- 
-    newUser.save().then((doc) => {
-        console.log("Usuario creado: ", doc);
+}); let User = mongoose.model('users', userSchema);
+
+router.post('/users', async (req, res) => {
+    try {
+        let { nombre, email, pswd } = req.body;
+        
+        // Verificar si el correo ya está en uso
+        const correoEnUso = await validarCorreo(email);
+        if (correoEnUso) {
+            return res.status(400).json({ success: false, message: "El correo ya está en uso" });
+        }
+        // Encriptar la contraseña antes de guardarla en la base de datos
+        let hash = bcrypt.hashSync(pswd, 10);
+        console.log("Contraseña encriptada: ", hash);
+        let newUser = new User({ nombre, email, Password: hash });
+        // Guardar el nuevo usuario en la base de datos
+        await newUser.save();
+        
+        console.log("Usuario creado: ", newUser);
         res.status(200).json({ success: true, message: "Usuario creado exitosamente" });
-    }).catch((err) => {
-        console.error("Error al crear usuario: ", err);
-        res.status(200).json({ success: false, message: "Error al crear usuario"});
-    });
+    } catch (error) {
+        console.error("Error al crear usuario: ", error);
+        res.status(500).json({ success: false, message: "Error al crear usuario"});
+    }
 });
+
+
+router.post('/login', async (req, res) => {
+    try {
+        const { email, pswd } = req.body;
+
+        // Verificar si el correo existe en la base de datos
+        const usuario = await User.findOne({ email });
+
+        if (!usuario) {
+            return res.status(400).json({ success: false, message: "Credenciales inválidas" });
+        }
+
+        // Verificar si las contraseñas coinciden
+        //PUESTO PARA DEBUGGEAR, NO AFECTA EN NADAAAAA
+        //console.log("Contraseña proporcionada por el usuario: ", pswd);
+        //console.log("Contraseña almacenada en la base de datos: ", usuario.Password);
+
+        const contraseñaValida = await bcrypt.compare(pswd, usuario.Password);
+
+        if (!contraseñaValida) {
+            return res.status(400).json({ success: false, message: "Credenciales inválidas" });
+        }
+
+        // Generar y devolver un token JWT si las credenciales son válidas
+        const token = jwt.sign({ userId: usuario._id, email: usuario.email }, 'secreto', { expiresIn: '1h' });
+        
+        res.status(200).json({ success: true, message: "Inicio de sesión exitoso", token });
+    } catch (error) {
+        console.error("Error al iniciar sesión: ", error);
+        res.status(500).json({ success: false, message: "Error al iniciar sesión" });
+    }
+});
+
+
+
+
+
 
 
 
@@ -170,8 +230,5 @@ router.post('/rents', (req, res) => {
         });
 
 });
-
-
-
 
 module.exports = router;
