@@ -1,6 +1,5 @@
-  
-  
-  function handleCheckboxClick(checkbox) {
+   
+function handleCheckboxClick(checkbox) {
     var checkboxes = document.querySelectorAll('input[type="checkbox"]');
     if (checkbox.checked) {
         checkboxes.forEach(function (cb) {
@@ -98,7 +97,7 @@ function abrirModal(car) {
                     
           
 
-          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" >Rent Now</button>
+          <button id="rentNowButton" class="w3-button w3-block w3-green w3-section w3-padding" type="submit" >Rent Now</button>
         </div>
       </form>
 
@@ -118,6 +117,7 @@ function abrirModal(car) {
        var selectedOption = this.options[this.selectedIndex];
        document.getElementById('insurance_description').value = selectedOption.getAttribute('data-descripcion');
    });
+
    document.getElementsByName('end_date')[0].addEventListener('change', function() {
     var carPrecio = car.Precio;
     var selectedOption = document.getElementById('insurance_type').options[document.getElementById('insurance_type').selectedIndex];
@@ -144,6 +144,51 @@ document.getElementById('rent-breakdown').innerHTML = rentBreakdown;
 
    
 }
+
+function saveRentalToSession() {
+    // Obtiene los datos del formulario y los elementos del DOM
+    const email = document.querySelector('[name="correo"]').value;
+    const fullName = document.querySelector('[name="full_name"]').value;
+    const lastName = document.querySelector('[name="last_name"]').value;
+    const startDate = document.querySelector('[name="start_date"]').value;
+    const endDate = document.querySelector('[name="end_date"]').value;
+    const carName = document.querySelector('[name="car_name"]').value;
+    const carPricePerDay = document.querySelector('[name="car_precio"]').value;
+    const selectedInsurance = document.getElementById('insurance_type').selectedOptions[0];
+    const insuranceName = selectedInsurance.value;
+    const insurancePrice = selectedInsurance.getAttribute('data-precio');
+    const total = document.querySelector('[name="total"]').value;
+
+    // Calcula los días de renta
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const daysRented = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+
+    // Crea el objeto con los datos de la renta
+    const rentalData = {
+        email,
+        fullName,
+        lastName,
+        startDate,
+        endDate,
+        daysRented,
+        carName,
+        carPricePerDay,
+        insuranceName,
+        insurancePrice,
+        total
+    };
+
+    // Almacena los datos en sessionStorage
+    sessionStorage.setItem('rentalData', JSON.stringify(rentalData));
+    
+    // Muestra confirmación al usuario
+    alert("¡Información de la renta guardada con éxito!");
+}
+
+// Agrega un listener al botón de rentar para guardar la información cuando se haga clic
+document.getElementById('rentNowButton').addEventListener('click', saveRentalToSession);
+
 
 function setupModalListeners() {
     document.addEventListener('click', function(event) {
