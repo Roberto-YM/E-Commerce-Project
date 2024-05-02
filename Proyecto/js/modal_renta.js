@@ -153,7 +153,6 @@ function saveRentalToSession() {
     const endDate = document.querySelector('[name="end_date"]').value;
     const carName = document.querySelector('[name="car_name"]').value;
     const carPricePerDay = document.querySelector('[name="car_precio"]').value;
-    const selectedInsurance = document.getElementById('insurance_type').selectedOptions[0];
     const insuranceName = selectedInsurance.value;
     const insurancePrice = selectedInsurance.getAttribute('data-precio');
     const total = document.querySelector('[name="total"]').value;
