@@ -152,14 +152,14 @@ function saveRentalToSession() {
     const startDate = document.querySelector('[name="start_date"]').value;
     const endDate = document.querySelector('[name="end_date"]').value;
     const carName = document.querySelector('[name="car_name"]').innerHTML;
-    const carPricePerDay = document.querySelector('[name="car_precio"]').innerHTML;
+    const carPricePerDay = document.querySelector('[name="car_price_per_day"]').value;
     const selectedInsurance = document.getElementById('insurance_type').selectedOptions[0];
     const insuranceName = selectedInsurance.value;
     const insurancePrice = selectedInsurance.getAttribute('data-precio');
     const total = document.querySelector('[name="total"]').value;
     const img = document.querySelector('[name="img_car"]').getAttribute('src');
 
-    debugger;
+ //   debugger;
 
     // Calcula los días de renta
     const start = new Date(startDate);
