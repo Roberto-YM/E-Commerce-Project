@@ -66,7 +66,7 @@ router.post('/login', async (req, res) => {
         const contraseñaValida = await bcrypt.compare(pswd, usuario.Password);
 
         if (!contraseñaValida) {
-            return res.status(400).json({ success: false, message: "Credenciales inválidas" });
+            res.status(400).json({ success: false, message: "Credenciales inválidas" });
         }
 
         // Generar y devolver un token JWT si las credenciales son válidas

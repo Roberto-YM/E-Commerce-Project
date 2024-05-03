@@ -49,7 +49,7 @@ function abrirModal(car) {
     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
       <div class="w3-center"><br>
         <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-        <img src="${car.img}" width="300px" alt="${car.nombre}">
+        <img src="${car.img}" width="300px" name="img_car" alt="${car.nombre}">
       </div>
 
       <form class="w3-container" method="post" action="/products/rents">
@@ -85,7 +85,7 @@ function abrirModal(car) {
                     <label  style="color: black;"><b>Fecha Final</b></label>
                     <input class="w3-input w3-border w3-margin-bottom" type="date" name="end_date" required>
                     <label  style="color: black;"><b>Tipo de carro: </b></label>
-                    <label  style="color: black;"  id="nombre_carro" name="car_name">${car.nombre}</label><br>
+                    <label  style="color: black;" name="car_name">${car.nombre}</label><br>
                     <label  style="color: black;" name="car_precio"><b>Precio: </b>$${car.Precio} - el día</label>
                     <input type="hidden" name="car_name" value="${car.nombre}">
                     <input type="hidden" name="car_precio" value="${car.Precio}">
@@ -151,13 +151,15 @@ function saveRentalToSession() {
     const lastName = document.querySelector('[name="last_name"]').value;
     const startDate = document.querySelector('[name="start_date"]').value;
     const endDate = document.querySelector('[name="end_date"]').value;
-    const carName = document.getElementById("nombre_carro");
-    const carPricePerDay = document.querySelector('[name="car_precio"]').value;
+    const carName = document.querySelector('[name="car_name"]').innerHTML;
+    const carPricePerDay = document.querySelector('[name="car_precio"]').innerHTML;
     const selectedInsurance = document.getElementById('insurance_type').selectedOptions[0];
     const insuranceName = selectedInsurance.value;
     const insurancePrice = selectedInsurance.getAttribute('data-precio');
     const total = document.querySelector('[name="total"]').value;
+    const img = document.querySelector('[name="img_car"]').getAttribute('src');
 
+    debugger;
 
     // Calcula los días de renta
     const start = new Date(startDate);
@@ -176,7 +178,8 @@ function saveRentalToSession() {
         carPricePerDay,
         insuranceName,
         insurancePrice,
-        total
+        total,
+        img
     };
 
     // Almacena los datos en sessionStorage
@@ -185,10 +188,6 @@ function saveRentalToSession() {
     // Muestra confirmación al usuario
     alert("¡Información de la renta guardada con éxito!");
 }
-
-// Agrega un listener al botón de rentar para guardar la información cuando se haga clic
-document.getElementById('rentNowButton').addEventListener('click', saveRentalToSession);
-
 
 function setupModalListeners() {
     document.addEventListener('click', function(event) {
