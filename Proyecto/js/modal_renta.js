@@ -52,7 +52,7 @@ function abrirModal(car) {
         <img src="${car.img}" width="300px" name="img_car" alt="${car.nombre}">
       </div>
 
-      <form class="w3-container" method="post" action="/products/rents">
+      <form class="w3-container" >
         <div class="w3-section">
           <label style="color: black;"><b>Email</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="email" name="correo" required>
@@ -139,6 +139,7 @@ function abrirModal(car) {
 `;
 document.getElementById('rent-breakdown').innerHTML = rentBreakdown;
 
+
 });
 
    
@@ -159,12 +160,19 @@ function saveRentalToSession() {
     const total = document.querySelector('[name="total"]').value;
     const img = document.querySelector('[name="img_car"]').getAttribute('src');
 
- //   debugger;
-
     // Calcula los días de renta
     const start = new Date(startDate);
     const end = new Date(endDate);
     const daysRented = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+
+    // Consultar el contador actual y generar la nueva clave única
+    let rentalCounter = sessionStorage.getItem('rentalCounter');
+    if (!rentalCounter) {
+        rentalCounter = 1;
+    } else {
+        rentalCounter = parseInt(rentalCounter) + 1;
+    }
+    const rentalKey = `rentalData_${rentalCounter}`;
 
     // Crea el objeto con los datos de la renta
     const rentalData = {
@@ -182,12 +190,16 @@ function saveRentalToSession() {
         img
     };
 
-    // Almacena los datos en sessionStorage
-    sessionStorage.setItem('rentalData', JSON.stringify(rentalData));
+    // Almacena los datos en sessionStorage con la nueva clave única
+    sessionStorage.setItem(rentalKey, JSON.stringify(rentalData));
     
+    // Actualiza el contador en sessionStorage
+    sessionStorage.setItem('rentalCounter', rentalCounter);
+
     // Muestra confirmación al usuario
     alert("¡Información de la renta guardada con éxito!");
 }
+
 
 function setupModalListeners() {
     document.addEventListener('click', function(event) {

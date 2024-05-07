@@ -200,35 +200,40 @@ router.get('/all-cars', async (req, res) => {
 });
 
 
-//Subir la información de la renta a la base de datos 
+
+
 let rentaSchema = new mongoose.Schema({
-    correo: String,
-    full_name: String,
-    last_name: String,
-    insurance_type: String,
-    start_date: String,
-    end_date: String,
-    car_name: String,
-    car_precio: String,
-    seguro_precio: String,
-    dias: String,
+    carName: String,
+    carPricePerDay: String,
+    daysRented: String,
+    email: String,
+    endDate: String,
+    fullName: String,
+    img: String,
+    insuranceName: String,
+    insurancePrice: String,
+    lastName: String,
+    startDate: String,
     total: String
 });
+
 let Rent = mongoose.model('rents', rentaSchema);
 
 router.post('/rents', (req, res) => {
+// Recibir los datos del cuerpo de la solicitud
+const rentaDataArray = req.body;
 
-    let {correo,full_name,last_name,insurance_type,start_date,end_date,car_name,car_precio,seguro_precio,dias,total} = req.body;
-    let newRent = Rent({correo,full_name,last_name,insurance_type,start_date,end_date,car_name,car_precio,seguro_precio,dias,total});
-
-        newRent.save().then((doc) => {
-            console.log("Renta creada: ", doc);
-            res.status(200).json({ success: true, message: "Renta creada exitosamente" ,doc});
-        }).catch((err) => {
-            console.error("Error al crear usuario: ", err);
-            res.status(200).json({ success: false, message: "Error al crear usuario" });
-        });
-
+// Guardar los datos de las rentas en la base de datos
+Rent.insertMany(rentaDataArray)
+    .then(docs => {
+        console.log("Rentas creadas:", docs);
+        res.status(200).json({ success: true, message: "Rentas creadas exitosamente", docs });
+    })
+    .catch(err => {
+        console.error("Error al crear rentas:", err);
+        res.status(500).json({ success: false, message: "Error al crear rentas" });
+    });
+    
 });
 
 module.exports = router;

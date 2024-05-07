@@ -1,6 +1,4 @@
 
-document.getElementById("boton_pagar_carrito").addEventListener("click", function(event) {
-    event.preventDefault(); // Esto evita que el navegador siga el enlace o realice la acción predeterminada.
 
     fetch("http://localhost:3000/create-checkout-session", {
         method: "POST",
@@ -24,4 +22,3 @@ document.getElementById("boton_pagar_carrito").addEventListener("click", functio
     .catch(e => {
         console.error("Error en el proceso de pago:", e);
     });
-});
