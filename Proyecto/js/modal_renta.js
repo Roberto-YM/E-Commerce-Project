@@ -110,7 +110,9 @@ function abrirModal(car) {
    // Agregar el modal al documento y mostrarlo
    document.body.insertAdjacentHTML('beforeend', modalContent);
    document.getElementById('id01').style.display = 'block';
-   document.getElementById('rentNowButton').addEventListener('click', saveRentalToSession);
+    document.getElementById('rentNowButton').addEventListener('click', saveRentalToSession);
+
+
 
    // Agregar evento change al select para actualizar la descripción del seguro seleccionado
    document.getElementById('insurance_type').addEventListener('change', function() {
@@ -145,6 +147,11 @@ document.getElementById('rent-breakdown').innerHTML = rentBreakdown;
 
    
 }
+
+
+
+
+
 
 function saveRentalToSession() {
     // Obtiene los datos del formulario y los elementos del DOM
@@ -202,15 +209,51 @@ function saveRentalToSession() {
         total,
         img
     };
+    if(!findUser()){
+        alert('No puedes rentar un auto sin tener una cuenta.');
+    }
+    else{
 
-    // Almacena los datos en sessionStorage con la nueva clave única
-    sessionStorage.setItem(rentalKey, JSON.stringify(rentalData));
+        // Almacena los datos en sessionStorage con la nueva clave única
+        sessionStorage.setItem(rentalKey, JSON.stringify(rentalData));
+        
+        // Actualiza el contador en sessionStorage
+        sessionStorage.setItem('rentalCounter', rentalCounter);
     
-    // Actualiza el contador en sessionStorage
-    sessionStorage.setItem('rentalCounter', rentalCounter);
+        // Muestra confirmación al usuario
+        alert("¡Información de la renta guardada con éxito!");
+    }
 
-    // Muestra confirmación al usuario
-    alert("¡Información de la renta guardada con éxito!");
+}
+function findUser() {
+    // Obtener el correo electrónico del usuario desde el formulario
+    const userEmail = document.querySelector('[name="correo"]').value;
+    let correo;
+
+    // Realizar la solicitud al servidor para encontrar al usuario por su correo electrónico
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `http://localhost:3000/admin/find/user/${userEmail}`, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            // Si la solicitud es exitosa, imprimir el usuario encontrado en la consola
+            correo =  console.log('Usuario encontrado:', JSON.parse(xhr.responseText).email);
+           
+        } else {
+            // Si hay un error, mostrar un mensaje de error en la consola
+            console.error('Error al buscar usuario:', xhr.statusText);
+        }
+    };
+
+    xhr.onerror = function () {
+        // Si hay un error de red, mostrar un mensaje de error en la consola
+        console.error('Error de red al buscar usuario.');
+    };
+
+    // Enviar la solicitud al servidor
+    xhr.send();
+    console.log(correo);
 }
 
 

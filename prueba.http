@@ -27,3 +27,7 @@ Content-Type: application/json
     "Precio":"1500",
     "img":"prueba"
 }
+
+###
+GET http://localhost:3000/admin/find/user/Isaac.alejandro.perez@gmail.com
+Content-Type: application/application/json
