@@ -4,6 +4,16 @@ function iniciarEdicion(rentalKey) {
     document.getElementById(rentalKey + '_startDate').disabled = false;
     document.getElementById(rentalKey + '_endDate').disabled = false;
     document.getElementById(rentalKey + '_insuranceType').disabled = false;
+
+    // Obtener la fecha actual
+    const currentDate = new Date();
+    const currentDateString = currentDate.toISOString().split('T')[0]; // Obtener la fecha en formato YYYY-MM-DD
+
+    // Establecer la fecha mínima para el campo de inicio como la fecha actual
+    document.getElementById(rentalKey + '_startDate').setAttribute('min', currentDateString);
+
+    // Establecer la fecha mínima para el campo de fin como la fecha actual
+    document.getElementById(rentalKey + '_endDate').setAttribute('min', currentDateString);
 }
 
 
@@ -20,6 +30,11 @@ function aplicarCambios(rentalKey) {
     const end = new Date(endDate);
     const diffTime = Math.abs(end - start);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    if(end < start){
+        alert('Fechas incorrectas.')
+        return;
+    }
 
     // Obtener el precio del seguro según el tipo seleccionado
     let insurancePrice = 0;

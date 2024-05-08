@@ -34,6 +34,35 @@ router.delete("/delete/product/:id", async (req, res) => {
     }
 });
 
+
+router.get('/find/user', async (req, res) => {
+    const correo = req.query.correo; // Obtener el correo electrónico de los parámetros de consulta
+    if (!correo) {
+        // Si no se proporciona el correo electrónico en los parámetros de consulta, enviar un mensaje de error
+        return res.status(400).json({ message: 'El parámetro de consulta "correo" es obligatorio' });
+    }
+
+    try {
+        // Buscar el usuario por correo electrónico en la colección de usuarios
+        const user = await Users.findOne({ correo });
+
+        // Si se encuentra el usuario, enviar los datos del usuario como respuesta
+        if (user) {
+            console.log('Usuario encontrado:', user.correo); // Imprimir el correo electrónico del usuario en la consola
+            res.json({ user });
+        } else {
+            // Si el usuario no se encuentra, enviar un mensaje indicando que no se encontró el usuario
+            res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+    } catch (error) {
+        // Si hay un error en la búsqueda, enviar un mensaje de error
+        console.error('Error al buscar usuario:', error);
+        res.status(500).json({ message: 'Error interno del servidor' });
+    }
+});
+
+
+
 router.delete("/delete/users/:id",async(req,res) =>{
     const userId = req.params.id;
     try {

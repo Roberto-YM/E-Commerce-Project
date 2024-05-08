@@ -22,8 +22,8 @@ function handleAdultCheckboxClick(adultCheckbox) {
 
 function handleFormSubmit(event) {
     event.preventDefault(); // Evitar el envío del formulario
-    // Aquí puedes agregar la lógica para guardar la renta o simplemente mostrar un mensaje de éxito
     alert("¡La renta se guardó con éxito!");
+    
 }
 
 function abrirModal(car) {
@@ -32,7 +32,8 @@ function abrirModal(car) {
     if (existingModal) {
         existingModal.remove();
     }
-    //document.querySelector('form').addEventListener('submit', handleFormSubmit);
+
+    var currentDate = new Date().toISOString().split('T')[0];
      // Detalles de los seguros
      const seguros = [
         { nombre: "Basico", precio: 8500, descripcion: "Responsabilidad civil: Cubre los daños causados a terceros en caso de un accidente en el que el conductor sea responsable. Esto puede incluir daños a vehículos de otras personas, propiedades u lesiones corporales. Cobertura de lesiones personales: Proporciona cobertura para gastos médicos del conductor y sus pasajeros en caso de un accidente, independientemente de quién tenga la culpa. Cobertura de daños a la propiedad: Puede cubrir los costos de reparación o reemplazo de vehículos u otras propiedades dañadas en un accidente en el que el conductor sea responsable." },
@@ -81,9 +82,9 @@ function abrirModal(car) {
                     <label style="color: black;"><b>Descripción del Seguro</b></label>
                     <textarea class="w3-input w3-border w3-margin-bottom" name="insurance_description" id="insurance_description" readonly rows="15"></textarea>
                     <label  style="color: black;"><b>Fecha de inicial</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="date" name="start_date" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="date" name="start_date"  min="${currentDate}" required>
                     <label  style="color: black;"><b>Fecha Final</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="date" name="end_date" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="date" name="end_date" m min="${currentDate}" required>
                     <label  style="color: black;"><b>Tipo de carro: </b></label>
                     <label  style="color: black;" name="car_name">${car.nombre}</label><br>
                     <label  style="color: black;" name="car_precio"><b>Precio: </b>$${car.Precio} - el día</label>
@@ -159,6 +160,18 @@ function saveRentalToSession() {
     const insurancePrice = selectedInsurance.getAttribute('data-precio');
     const total = document.querySelector('[name="total"]').value;
     const img = document.querySelector('[name="img_car"]').getAttribute('src');
+
+
+    if(startDate === endDate){
+        alert('Tienes que tener almenos un día de renta.')
+        return;
+    }
+    if(endDate < startDate){
+        alert('Los días son incorrectos.')
+        return;
+    }
+    
+
 
     // Calcula los días de renta
     const start = new Date(startDate);
