@@ -219,24 +219,24 @@ function cardTotal(rentalKeys) {
         });
 
         fetch("http://localhost:3000/create-checkout-session", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            items: rentaDataArray, // Enviar los datos del sessionStorage al servidor
-        }),
-    })
-    .then(res => {
-        if (res.ok) return res.json();
-        return res.json().then(json => Promise.reject(json));
-    })
-    .then(({ url }) => {
-        window.location = url;
-    })
-    .catch(e => {
-        console.error("Error en el proceso de pago:", e);
-    });
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                items: rentaDataArray, // Enviar los datos del sessionStorage al servidor
+            }),
+        })
+            .then(res => {
+                if (res.ok) return res.json();
+                return res.json().then(json => Promise.reject(json));
+            })
+            .then(({ url }) => {
+                window.location = url;
+            })
+            .catch(e => {
+                console.error("Error en el proceso de pago:", e);
+            });
 
         // Enviar los datos de las rentas al servidor
         fetch("/products/rents", {
