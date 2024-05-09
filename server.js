@@ -29,14 +29,10 @@ db.once('open', function() {
 
 app.use('/',router);
 
-
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 });
-
-
-
 
 const storeItems = new Map([
     [1, { priceInCents: 10000, name: "Learn React Today" }],   // Mapa de la informacion que contiene el carrit de stripe
@@ -70,3 +66,4 @@ app.post("/create-checkout-session", async (req, res) => {    //stripe checkout 
 });
 
 
+module.exports = app;
