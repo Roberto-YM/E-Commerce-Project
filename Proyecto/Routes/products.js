@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { json } = require('body-parser');
 const router = express.Router();
 
 //FUNCIONES
@@ -25,7 +26,7 @@ let userSchema = mongoose.Schema({
 router.post('/users', async (req, res) => {
     try {
         let { nombre, email, pswd } = req.body;
-        
+        console.log("Datos del usuario: ", nombre, email, pswd);
         // Verificar si el correo ya está en uso
         const correoEnUso = await validarCorreo(email);
         if (correoEnUso) {
@@ -50,28 +51,18 @@ router.post('/users', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         const { email, pswd } = req.body;
-
         // Verificar si el correo existe en la base de datos
         const usuario = await User.findOne({ email });
-
         if (!usuario) {
             return res.status(400).json({ success: false, message: "Credenciales inválidas" });
         }
-
         // Verificar si las contraseñas coinciden
-        //PUESTO PARA DEBUGGEAR, NO AFECTA EN NADAAAAA
-        //console.log("Contraseña proporcionada por el usuario: ", pswd);
-        //console.log("Contraseña almacenada en la base de datos: ", usuario.Password);
-
         const contraseñaValida = await bcrypt.compare(pswd, usuario.Password);
-
         if (!contraseñaValida) {
-            res.status(400).json({ success: false, message: "Credenciales inválidas" });
+            return res.status(400).json({ success: false, message: "Credenciales inválidas" });
         }
-
         // Generar y devolver un token JWT si las credenciales son válidas
         const token = jwt.sign({ userId: usuario._id, email: usuario.email }, 'secreto', { expiresIn: '1h' });
-        
         res.status(200).json({ success: true, message: "Inicio de sesión exitoso", token });
     } catch (error) {
         console.error("Error al iniciar sesión: ", error);
