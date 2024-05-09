@@ -212,7 +212,6 @@ function saveRentalToSession() {
     if(!findUser()){
         alert('No puedes rentar un auto sin tener una cuenta.');
     }
-    else{
 
         // Almacena los datos en sessionStorage con la nueva clave única
         sessionStorage.setItem(rentalKey, JSON.stringify(rentalData));
@@ -222,7 +221,6 @@ function saveRentalToSession() {
     
         // Muestra confirmación al usuario
         alert("¡Información de la renta guardada con éxito!");
-    }
 
 }
 function findUser() {
