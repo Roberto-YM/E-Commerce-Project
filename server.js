@@ -38,35 +38,38 @@ app.listen(port, () => {
 
 
 
-const storeItems = new Map([
+/*const storeItems = new Map([
     [1, { priceInCents: 10000, name: "Learn React Today" }],   // Mapa de la informacion que contiene el carrit de stripe
-    [2, { priceInCents: 20000, name: "Learn CSS Today" }],     
-]);
+    [2, { priceInCents: 20000, name: "Learn CSS Today" }],          
+]);*/
 app.post("/create-checkout-session", async (req, res) => {    //stripe checkout session
-    try {
-      const session = await stripe.checkout.sessions.create({
+  try {
+    const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         mode: "payment",
         line_items: req.body.items.map(item => {
-          const storeItem = storeItems.get(item.id)
-          return {
-            price_data: {
-              currency: "usd",
-              product_data: {
-                name: storeItem.name,
-              },
-              unit_amount: storeItem.priceInCents,
-            },
-            quantity: item.quantity,
-          }
+            return {
+                price_data: {
+                    currency: "MXN",
+                    product_data: {
+                        name: item.carName, // Ajusta según la estructura de tus datos
+                        /*Image: item.img*/
+                        images: [item.img],
+                        
+                        
+                    },
+                    unit_amount: item.total * 100, // Ajusta según la estructura de tus datos
+                },
+                quantity: 1, // Ajusta según la estructura de tus datos
+            }
         }),
-        success_url: `${process.env.CLIENT_URL}/succes.html`,  //http://localhost:3000/carrito/succes.html
+        success_url: `${process.env.CLIENT_URL}/succes.html`,
         cancel_url: `${process.env.CLIENT_URL}/cancel.html`,
-      });
-      res.json({ url: session.url });
-    } catch (e) {
-      res.status(500).json({ error: e.message });
-    }
+    });
+    res.json({ url: session.url });
+} catch (e) {
+    res.status(500).json({ error: e.message });
+}
 });
 
 

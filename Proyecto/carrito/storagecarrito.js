@@ -197,13 +197,13 @@ function cardTotal(rentalKeys) {
     carritoTotalDiv.innerHTML = totalCard;
 
     document.getElementById("boton_pagar_carrito").addEventListener("click", function(event) {
-        var script = document.createElement('script');
+        /*var script = document.createElement('script');
 
         // Asignar la URL del script independiente
         script.src = './carrito.js'; // Reemplaza 'ruta/al/script.js' con la ruta real de tu archivo
     
         // Agregar el script al final del body para ejecutarlo
-        document.body.appendChild(script);
+        document.body.appendChild(script);*/
         
 
         // Crear un array para almacenar los datos de las rentas
@@ -217,6 +217,26 @@ function cardTotal(rentalKeys) {
                 rentaDataArray.push(rentalData);
             }
         });
+
+        fetch("http://localhost:3000/create-checkout-session", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            items: rentaDataArray, // Enviar los datos del sessionStorage al servidor
+        }),
+    })
+    .then(res => {
+        if (res.ok) return res.json();
+        return res.json().then(json => Promise.reject(json));
+    })
+    .then(({ url }) => {
+        window.location = url;
+    })
+    .catch(e => {
+        console.error("Error en el proceso de pago:", e);
+    });
 
         // Enviar los datos de las rentas al servidor
         fetch("/products/rents", {
